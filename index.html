@@ -1,33 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About Me - Ajith Binny</title>
-  <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Me - Ajith Binny</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/animations.css">
 </head>
+
 <body>
-  <header class="navbar">
-    <h1 class="logo">AJ</h1>
-    <nav>
-      <a href="index.html" class="nav-link active">About Me</a>
-      <a href="blog.html" class="nav-link">Blog</a>
-    </nav>
-  </header>
+    <header class="navbar">
+        <h1 class="logo">AJ</h1>
+        <nav>
+            <a href="index.html" class="nav-link active">About Me</a>
+            <a href="blog.html" class="nav-link">Blog</a>
+        </nav>
+    </header>
 
-  <main class="about-container">
-    <section class="intro">
-      <img src="images/profile.jpg" alt="Profile Picture" class="profile-pic">
-      <div class="intro-text">
-        <h2>About Me</h2>
-        <p>Hello! I'm Ajith Binny, a passionate writer and tech enthusiast. Welcome to my personal website!</p>
-        <p>I aim to share my thoughts, ideas, and projects through this platform. Stay tuned for my latest blogs!</p>
-      </div>
-    </section>
-  </main>
+    <main class="about-container">
+        <section class="intro">
+            <img src="images/profile.jpg" alt="Profile Picture" class="profile-pic animate-fadeIn">
+            <div class="intro-text animate-scaleUp">
+                <h2>About Me</h2>
+                <p>Hello! I'm Ajith Binny, a passionate writer and tech enthusiast. Welcome to my personal website!</p>
+                <p>I aim to share my thoughts, ideas, and projects through this platform. Stay tuned for my latest
+                    blogs!</p>
+            </div>
+        </section>
+    </main>
 
-  <footer class="footer">
-    <p>© 2024 Ajith Binny. All rights reserved.</p>
-  </footer>
+    <footer class="footer">
+        <p>Total page visits <span id="visitor-count">0</span></p>
+    </footer>
+    <script>
+        fetch("https://3i2p1xl2me.execute-api.eu-west-1.amazonaws.com/prod/count")
+  .then(response => response.text())
+  .then(count => {
+      document.getElementById("visitor-count").innerText = count;
+  });
+    </script>
 </body>
+
 </html>
