@@ -35,10 +35,14 @@
     </footer>
     <script>
         fetch("https://3i2p1xl2me.execute-api.eu-west-1.amazonaws.com/prod/count")
-  .then(response => response.text())
-  .then(count => {
-      document.getElementById("visitor-count").innerText = count;
-  });
+        .then(response => response.json())
+        .then(data => {
+            document.getElementById("visitor-count").innerText = data.body;
+        })
+        .catch(error => {
+            console.error("Error fetching visitor count:", error);
+            document.getElementById("visitor-count").innerText = "Error";
+        });
     </script>
 </body>
 

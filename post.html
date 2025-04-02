@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Post - Ajith Binny</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <header class="navbar">
+    <h1 class="logo">AJ</h1>
+    <nav>
+      <a href="index.html" class="nav-link">About Me</a>
+      <a href="blog.html" class="nav-link">Blog</a>
+    </nav>
+  </header>
+
+  <main class="post-container" id="post-container">
+    <!-- Content will be loaded here by JavaScript -->
+    <div class="loading">
+      <div class="loading-spinner"></div>
+      <p>Loading post...</p>
+    </div>
+  </main>
+
+  <footer class="footer">
+    <p>© 2024 Ajith Binny. All rights reserved.</p>
+  </footer>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const urlParams = new URLSearchParams(window.location.search);
+      const postId = urlParams.get('id');
+      const container = document.getElementById('post-container');
+
+      if (!postId) {
+        container.innerHTML = `
+          <div class="error">
+            <p>No post specified. <a href="blog.html">Back to blog</a></p>
+          </div>
+        `;
+        return;
+      }
+
+      fetch(`https://mddf7o09p6.execute-api.eu-west-1.amazonaws.com/prod/posts/${postId}`)
+        .then(response => {
+          if (!response.ok) throw new Error('Post not found');
+          return response.json();
+        })
+        .then(post => {
+          // Convert date from DD-MM-YYYY to readable format
+          const [day, month, year] = post.date.split('-');
+          const postDate = new Date(`${year}-${month}-${day}`);
+          container.innerHTML = `
+            <article class="full-post">
+              <h1>${post.title}</h1>
+              <div class="post-meta">
+                <span class="author">By ${post.author || 'Ajith Binny'}</span>
+                <time datetime="${postDate.toISOString()}">
+                    ${postDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </time>
+              </div>
+              <div class="post-content">
+                ${post.content.replace(/\n/g, '<br>')}
+              </div>
+              <a href="blog.html" class="back-link">← Back to all posts</a>
+            </article>
+          `;
+        })
+        .catch(error => {
+          container.innerHTML = `
+            <div class="error">
+              <p>${error.message}. <a href="blog.html">Back to blog</a></p>
+            </div>
+          `;
+        });
+    });
+  </script>
+</body>
+</html>
