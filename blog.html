@@ -8,13 +8,23 @@
   <link rel="stylesheet" href="css/animations.css">
 </head>
 <body>
-  <header class="navbar">
-    <h1 class="logo">AJ</h1>
-    <nav>
-      <a href="index.html" class="nav-link">About Me</a>
-      <a href="blog.html" class="nav-link active">Blog</a>
-    </nav>
-  </header>
+  <div id="header"></div>
+    <script>
+        fetch('header.html')
+            .then(response => response.text())
+            .then(data => {
+            document.getElementById('header').innerHTML = data;
+
+            // Activate current page link
+            const currentPage = window.location.pathname.split('/').pop();
+            const navLinks = document.querySelectorAll('.nav-link');
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === currentPage) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
 
   <main class="blog-container animate-fadeIn">
     <h2 class="animate-scaleUp">My Blogs</h2>
