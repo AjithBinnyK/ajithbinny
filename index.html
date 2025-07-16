@@ -35,93 +35,123 @@
             <img src="images/profile.jpg" alt="Ajith Binny" class="profile-pic animate-fadeIn">
             <div class="intro-text animate-scaleUp">
                 <h2>About Me</h2>
-                <p>Hello! I'm <strong>Ajith Binny</strong>, a passionate and results-driven Software Engineer with over
-                    a year of hands-on experience in building full-stack web applications, developing cloud-based
-                    solutions, and designing intelligent automation tools.</p>
-
-                <p>I hold a Master’s in Computing from Griffith College Dublin and bring strong expertise in
-                    technologies like <strong>Java, Python, FastAPI, AWS, and Salesforce</strong>. My
-                    professional journey at QBurst allowed me to work across marketing automation, cloud workflows, and
-                    frontend/backend integration — always with a focus on clean, scalable code.</p>
-
-                <p>I thrive in collaborative, agile environments and enjoy solving real-world problems through smart
-                    software architecture. Whether it's automating business logic, optimizing performance, or crafting
-                    responsive UIs, I love delivering solutions that make an impact.</p>
+                <p>Hello! I'm <strong>Ajith Binny</strong>, a passionate and results-driven Software Engineer with
+                    experience in building full-stack web apps, cloud-based solutions, and automation tools.</p>
+                <p>I believe in proof-first resumes. Every skill you see here links to something I've actually built or
+                    deployed. This site itself is proof.</p>
             </div>
         </section>
 
         <!-- Skills Section -->
         <section id="skills" class="skills animate-fadeIn">
-            <h2>Skills</h2>
+            <h2>Skills in Action</h2>
+            <p>Every skill listed here is tied to something I’ve built or deployed. No fluff.</p>
             <div class="skills-grid">
+
                 <div class="skill-card">
-                    <h3>Languages</h3>
+                    <h3>🔧 Backend APIs with AWS</h3>
                     <ul>
-                        <li>Java</li>
-                        <li>Python</li>
-                        <li>Kotlin</li>
-                        <li>C++</li>
-                        <li>Apex</li>
+                        <li>Used <strong>AWS Lambda + API Gateway</strong> to create REST APIs for blog + visitor
+                            tracking</li>
+                        <li>Stored and queried data with <strong>DynamoDB</strong></li>
+                        <li>Automated deployments using <strong>GitHub Actions</strong></li>
+                        <li><a href="#projects">See full architecture</a></li>
                     </ul>
                 </div>
+
                 <div class="skill-card">
-                    <h3>Web Technologies</h3>
+                    <h3>💻 Frontend Web Development</h3>
                     <ul>
-                        <li>HTML</li>
-                        <li>CSS</li>
-                        <li>JavaScript</li>
-                        <li>FastAPI</li>
+                        <li>Built responsive site with <strong>HTML/CSS/JavaScript</strong></li>
+                        <li>Dynamic header loading and animation effects</li>
+                        <li>Connected to live AWS APIs using fetch()</li>
+                        <li><a href="https://www.ajithbinny.com" target="_blank">Live Site</a></li>
                     </ul>
                 </div>
+
                 <div class="skill-card">
-                    <h3>Databases</h3>
+                    <h3>📦 Cloud Infrastructure</h3>
                     <ul>
-                        <li>MySQL</li>
-                        <li>NoSQL</li>
+                        <li>Hosted on <strong>S3</strong> + delivered via <strong>CloudFront</strong> with SSL</li>
+                        <li>Managed IAM policies for secure access</li>
+                        <li>Implemented cache invalidation for CI/CD via GitHub Actions</li>
+                        <li><a href="#projects">Infrastructure Details</a></li>
                     </ul>
                 </div>
+
                 <div class="skill-card">
-                    <h3>Cloud Platforms</h3>
+                    <h3>🧪 Python in Practice</h3>
                     <ul>
-                        <li>AWS</li>
-                        <li>Google Cloud Platform</li>
+                        <li>Wrote Lambda functions in <strong>Python</strong> for backend logic</li>
+                        <li>Certified in Python (Basic) on HackerRank</li>
+                        <li><a href="https://www.hackerrank.com/certificates/8cad818aecf3" target="_blank">See
+                                Certificate</a></li>
                     </ul>
                 </div>
-                <div class="skill-card">
-                    <h3>Tools</h3>
-                    <ul>
-                        <li>Git & GitHub</li>
-                        <li>VS Code</li>
-                        <li>Eclipse</li>
-                    </ul>
-                </div>
-                <div class="skill-card">
-                    <h3>Methodologies</h3>
-                    <ul>
-                        <li>Agile</li>
-                        <li>Scrum</li>
-                    </ul>
-                </div>
+
             </div>
         </section>
 
+
+        <!-- Projects Section -->
+        <section id="projects" class="projects animate-fadeIn">
+            <h2>Projects & Proof of Work</h2>
+            <p>Each project listed here is live, working, and backed by real cloud infrastructure or source code. No
+                mockups — just real proof.</p>
+
+            <div class="project-card">
+                <h3>💡 Serverless Portfolio Website</h3>
+                <p>A full-stack personal site (this one!) with real-time visitor analytics and blog support. Built
+                    entirely with serverless AWS infrastructure.</p>
+                <ul>
+                    <li>🌐 <strong>Live:</strong> <a href="https://www.ajithbinny.com"
+                            target="_blank">ajithbinny.com</a></li>
+                    <li>🛠️ <strong>Stack:</strong> HTML/CSS/JS, Lambda, API Gateway, DynamoDB, S3, CloudFront</li>
+                    <li>🔄 <strong>CI/CD:</strong> GitHub Actions (auto deploy + cache invalidation)</li>
+                    <li>📁 <strong>Code:</strong> <a href="https://github.com/ajithbinnyK/ajithbinny"
+                            target="_blank">GitHub
+                            Repo</a></li>
+                    <li>📐 <strong>Infra:</strong> <a href="#skills">See AWS usage in Skills</a></li>
+                </ul>
+            </div>
+
+
+            <div class="project-card">
+                <h3>📷 AI-Powered Photo Uploader (In Progress)</h3>
+                <p>Cloud-based photo app where users can upload, tag, and share photos. AI detects objects, stores
+                    metadata, and serves optimized images.</p>
+                <ul>
+                    <li>🛠️ <strong>Stack:</strong> S3, Lambda, Rekognition, DynamoDB, API Gateway, Cognito</li>
+                    <li>🔐 <strong>Auth:</strong> Role-based user access with Cognito</li>
+                    <li>📁 <strong>Code:</strong> <a href="https://github.com/ajithbinnyK/photo-app"
+                            target="_blank">GitHub (WIP)</a></li>
+                </ul>
+            </div>
+        </section>
 
 
         <!-- Certifications Section -->
         <section id="certifications" class="certifications animate-fadeIn">
             <h2>Certifications</h2>
+            <p>These are not just badges — I've actually applied the knowledge from each certification in my work and
+                projects.</p>
+
             <div class="cert-grid">
 
                 <div class="cert-card">
                     <img src="images/cloud-practitioner.png" alt="AWS Logo">
                     <h3>AWS Certified Cloud Practitioner</h3>
+                    <p class="cert-desc">Used to build and secure the serverless backend for this website (S3, Lambda,
+                        IAM, API Gateway).</p>
                     <a href="https://www.credly.com/badges/6d48932f-98c5-42b6-a046-d207e85bbf20" target="_blank"
                         class="cert-btn">View Certificate</a>
                 </div>
 
                 <div class="cert-card">
                     <img src="images/hackerrank.png" alt="HackerRank Logo">
-                    <h3>Python (Basic)</h3>
+                    <h3>Python (Basic) – HackerRank</h3>
+                    <p class="cert-desc">Applied in writing Lambda functions for backend logic (visitor counter, blog
+                        fetch).</p>
                     <a href="https://www.hackerrank.com/certificates/8cad818aecf3" target="_blank" class="cert-btn">View
                         Certificate</a>
                 </div>
@@ -129,13 +159,17 @@
                 <div class="cert-card">
                     <img src="images/hackerrank.png" alt="HackerRank Logo">
                     <h3>Problem Solving (Intermediate)</h3>
+                    <p class="cert-desc">Demonstrates algorithmic thinking, reflected in how I optimize Lambda and DB
+                        queries.</p>
                     <a href="https://www.hackerrank.com/certificates/0dc9753e818c" target="_blank" class="cert-btn">View
                         Certificate</a>
                 </div>
 
                 <div class="cert-card">
                     <img src="images/generative-ai.png" alt="Generative AI Logo">
-                    <h3>Intro to Generative AI</h3>
+                    <h3>Intro to Generative AI – Google Cloud</h3>
+                    <p class="cert-desc">Exploring how to integrate AI-powered tagging and auto-captioning in a photo
+                        app (WIP).</p>
                     <a href="https://www.credly.com/badges/35ad7198-a9e2-4b76-9cfb-af20a3811cbe/public_url"
                         target="_blank" class="cert-btn">View Certificate</a>
                 </div>
@@ -144,44 +178,76 @@
         </section>
 
 
+
         <!-- Experience Section -->
         <section id="experience" class="experience animate-fadeIn">
             <h2>Professional Experience</h2>
-            <h3>Software Engineer – QBurst (India)</h3>
-            <p><em>September 2020 – March 2022</em></p>
-            <ul>
-                <li>Developed landing pages, email templates, and web forms using Salesforce Pardot.</li>
-                <li>Implemented automation workflows and debugged performance issues.</li>
-                <li>Led code reviews, created documentation, and trained new team members.</li>
-            </ul>
+
+            <div class="experience-entry">
+                <h3>Software Engineer — QBurst, India</h3>
+                <p><em>Sep 2020 – Mar 2022</em></p>
+                <ul>
+                    <li>🚀 Developed and maintained marketing automations using <strong>Salesforce Pardot</strong>.</li>
+                    <li>📈 Created dynamic landing pages, email templates, and custom web forms for lead generation.
+                    </li>
+                    <li>🛠️ Optimized campaign performance through A/B testing and process debugging.</li>
+                    <li>🤝 Onboarded junior developers and led internal knowledge-sharing sessions.</li>
+                </ul>
+                <p class="exp-note">While not cloud-native, this role sharpened my frontend fundamentals and automation
+                    mindset — both of which fuel my current AWS projects.</p>
+            </div>
         </section>
+
 
         <!-- Education Section -->
         <section id="education" class="education animate-fadeIn">
             <h2>Education</h2>
-            <ul>
-                <li>
-                    <strong>MSc in Computing</strong> – Griffith College Dublin (2023 – 2024)
-                    <br />First Class Honors
-                    <br /><em>Projects: Cloud-based social media platform, hotel booking system</em>
-                </li>
-                <li>
-                    <strong>Higher Diploma in Science in Computing</strong> – Griffith College Dublin (2022 – 2023)
-                    <br />Best Academic Achievement Award
-                    <br /><em>Project: Role-Based Web App with Admin/User views</em>
-                </li>
-                <li>
-                    <strong>B.Tech in Mechanical Engineering</strong> – Govt. Engineering College Kozhikode (2016 –
-                    2020)
-                    <br />First Class Honors
-                </li>
-            </ul>
+
+            <div class="edu-entry">
+                <h3>MSc in Computing – Griffith College Dublin</h3>
+                <p><em>Sep 2023 – Sep 2024</em> • First Class Honors</p>
+                <ul>
+                    <li>⚙️ Developed advanced skills in cloud computing, mobile app development, and network security
+                    </li>
+                    <li>🚀 Applied algorithms and data structures across multiple large-scale group projects</li>
+                    <li>🔧 <strong>Key Projects:</strong>
+                        <ul>
+                            <li>Cloud-based Social Media Platform (multi-user architecture)</li>
+                            <li>Hotel Booking System with dynamic pricing and availability</li>
+                            <li>Mobile app for home furniture planning using Genetic Algorithms</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="edu-entry">
+                <h3>Higher Diploma in Science in Computing – Griffith College Dublin</h3>
+                <p><em>Sep 2022 – Sep 2023</em> • Best Academic Achievement Award</p>
+                <ul>
+                    <li>📚 Built strong foundations in algorithms, databases, and system design</li>
+                    <li>🛠️ <strong>Capstone:</strong> Role-Based Web Application with distinct Admin and Member views
+                    </li>
+                </ul>
+            </div>
+
+            <div class="edu-entry">
+                <h3>B.Tech in Mechanical Engineering – Govt. Engineering College Kozhikode</h3>
+                <p><em>Aug 2016 – May 2020</em> • First Class Honors</p>
+                <ul>
+                    <li>🎓 Core engineering training shaped my analytical thinking and problem-solving mindset — now
+                        applied to cloud architecture and systems</li>
+                </ul>
+            </div>
         </section>
+
 
         <!-- Contact Section -->
         <section id="contact" class="contact animate-fadeIn">
             <h2>Contact</h2>
+            <p>If you'd like to collaborate, connect, or have a project in mind — feel free to reach out.</p>
+
             <div class="contact-grid">
+
                 <div class="contact-item">
                     <img src="images/email-icon.png" alt="Email Icon">
                     <div>
@@ -208,14 +274,24 @@
                 </div>
 
                 <div class="contact-item">
+                    <img src="images/github-icon.png" alt="GitHub Icon">
+                    <div>
+                        <h4>GitHub</h4>
+                        <a href="https://github.com/AjithBinnyK" target="_blank">github.com/AjithBinnyK</a>
+                    </div>
+                </div>
+
+                <div class="contact-item">
                     <img src="images/web-icon.png" alt="Website Icon">
                     <div>
                         <h4>Website</h4>
-                        <a href="https://www.ajithbinny.com" target="_blank">www.ajithbinny.com</a>
+                        <a href="https://www.ajithbinny.com" target="_blank">ajithbinny.com</a>
                     </div>
                 </div>
+
             </div>
         </section>
+
 
     </main>
 
