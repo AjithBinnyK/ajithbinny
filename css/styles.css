@@ -492,3 +492,80 @@ a:hover {
 .back-link:hover {
   background-color: #00D9DA;
 }
+
+/* === Certifications Split View (scoped) === */
+#certifications .cert-shell{
+  display:grid; grid-template-columns: 360px minmax(0, 1fr); gap:16px;
+}
+@media (max-width: 900px){
+  #certifications .cert-shell{ grid-template-columns:1fr; }
+}
+
+#certifications .cert-left, 
+#certifications .cert-right{
+  background:#161b22; border:1px solid #30363d; border-radius:14px; overflow:hidden;
+}
+
+#certifications .cert-right {
+  width: 100%;
+  min-width: 0;          /* prevents shrinking issues */
+  overflow: auto;      
+  display: flex;
+  flex-direction: column;
+  max-height: 83vh;
+}
+
+#certifications .cert-left__hdr{
+  padding:14px 14px 10px; border-bottom:1px solid #30363d; font-weight:600;
+}
+#certifications .cert-list{
+  max-height:70vh; overflow:auto; padding:8px;
+}
+
+/* list item */
+#certifications .cert-item{
+  display:grid; grid-template-columns: 36px 1fr; gap:12px;
+  padding:10px 12px; border-radius:10px; position:relative; cursor:pointer;
+  border:1px solid transparent; outline:none;
+}
+#certifications .cert-item:not(.is-active):hover{ background:#1a1f26; }
+#certifications .cert-item:focus-visible{ border-color:#388bfd; }
+#certifications .cert-item.is-active{
+  background:#21262d; border:1px solid #3a424a;
+}
+#certifications .cert-item.is-active::before{
+  content:""; position:absolute; left:-1px; top:-1px; bottom:-1px; width:4px; background:#388bfd; border-radius:10px 0 0 10px;
+}
+
+/* badge */
+#certifications .cert-badge{
+  inline-size:36px; block-size:36px; border-radius:50%; display:grid; place-items:center;
+  color:#fff; font-weight:700; font-size:.8rem;
+}
+#certifications .cert-badge.AWS{ background:#ff9900; }
+#certifications .cert-badge.HR{  background:#6495ed; }
+#certifications .cert-badge.C{ background:#4caf50; }
+#certifications .cert-badge.PH{  background:#ba68c8; }
+
+#certifications .cert-title-sm{ font-weight:600; font-size:.98rem; }
+#certifications .cert-meta{ color:#8b949e; font-size:.86rem; margin-top:2px; }
+
+/* right panel */
+#certifications .cert-right__pad{ padding:18px; }
+#certifications .cert-title{ margin:0 0 6px; font-size:1.3rem; }
+#certifications .cert-row{ color:#8b949e; margin:4px 0; }
+
+#certifications .cert-chips{ display:flex; gap:8px; flex-wrap:wrap; margin:12px 0 0; }
+#certifications .cert-chip{ background:#1d8565; color:#e5f6f1; padding:6px 10px; border-radius:999px; font-size:.85rem; }
+
+#certifications .cert-actions{ display:flex; gap:10px; margin:14px 0 0; }
+#certifications .cert-btn{
+  background:#388bfd; color:#fff; border:none; padding:9px 14px; border-radius:10px; font-weight:600; cursor:pointer;
+}
+#certifications .cert-btn--secondary{ background:#21262d; color:#e6edf3; border:1px solid #3a424a; }
+#certifications .cert-btn:disabled{ opacity:.6; cursor:not-allowed; }
+
+#certifications .cert-section{ border-top:1px solid #30363d; margin-top:16px; padding:16px 0 2px; }
+#certifications .cert-section h4{ margin:0 0 10px; font-size:1.05rem; }
+#certifications .cert-bullets{ color:#8b949e; }
+#certifications .cert-foot{ color:#8b949e; font-size:.85rem; padding:10px 18px 18px; }

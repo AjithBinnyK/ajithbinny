@@ -131,7 +131,7 @@
 
 
         <!-- Certifications Section -->
-        <section id="certifications" class="certifications animate-fadeIn">
+        <!-- <section id="certifications" class="certifications animate-fadeIn">
             <h2>Certifications</h2>
             <p>These are not just badges — I've actually applied the knowledge from each certification in my work and
                 projects.</p>
@@ -174,6 +174,39 @@
                         target="_blank" class="cert-btn">View Certificate</a>
                 </div>
 
+            </div>
+        </section> -->
+
+        <section id="certifications" class="certifications animate-fadeIn">
+            <h2>Certifications</h2>
+
+            <div class="cert-shell" role="application" aria-label="Certifications split view">
+                <!-- LEFT: LIST -->
+                <aside class="cert-left" aria-label="All certifications">
+                    <header class="cert-left__hdr">All Certifications</header>
+                    <div class="cert-list" id="certList" role="listbox" aria-activedescendant=""></div>
+                </aside>
+
+                <!-- RIGHT: DETAILS -->
+                <main class="cert-right" aria-live="polite">
+                    <div class="cert-right__pad">
+                        <h3 id="dTitle" class="cert-title">—</h3>
+                        <div class="cert-row" id="dIssuer">—</div>
+                        <div class="cert-row" id="dDates">—</div>
+                        <div class="cert-row" id="dId"></div>
+
+                        <div class="cert-chips" id="dSkills"></div>
+                        <div class="cert-actions">
+                            <button class="cert-btn" id="btnOpen" disabled>Show credential</button>
+                            <button class="cert-btn cert-btn--secondary" id="btnCopy" disabled>Copy ID</button>
+                        </div>
+
+                        <div class="cert-section">
+                            <h4>Highlights</h4>
+                            <div class="cert-bullets" id="dHighlights"></div>
+                        </div>
+                    </div>
+                </main>
             </div>
         </section>
 
@@ -310,6 +343,327 @@
                 document.getElementById("visitor-count").innerText = "Error";
             });
     </script>
+    <script>
+        /** Certifications data */
+        const CERTS = [
+            {
+                issuer: "Amazon Web Services",
+                issuerCode: "AWS",
+                title: "AWS Certified Cloud Practitioner",
+                issued: "Issued Apr 2025",
+                expires: "Expires Apr 2028",
+                id: null,
+                url: "https://www.credly.com/badges/6d48932f-98c5-42b6-a046-d207e85bbf20",
+                skills: ["Cloud Concepts","AWS Global Infrastructure","Security and Compliance","Billing and Pricing","Cloud Economics","Shared Responsibility Model","Deployment Models","Scalability and Elasticity","High Availability","AWS Management Console","Amazon Web Services","Basic Support and Cloud Use Cases"],
+                highlights: [
+                    "Industry-recognized certification.",
+                    "Validates foundational AWS knowledge across cloud concepts, services, security, and billing."
+                ]
+            },
+            {
+                issuer: "Amazon Web Services",
+                issuerCode: "C",
+                title: "Cloud Support Essentials: A Technical Approach",
+                issued: "Issued Sep 2025",
+                expires: null,
+                id: "4SGLE07KHW7N",
+                url:"https://coursera.org/share/1cbf7cacfbf4452d0dc1b4f506cfeffd",
+                skills: ["Command-Line Interface","Network Infrastructure","Network Security","System Configuration","Operating Systems","Amazon Web Services","File Management","Software Installation","Linux Commands","Technical Support","Linux Administration","DevOps"],
+                highlights: [
+                    "Builds strong foundations in Linux CLI navigation, file management, and system configuration.",
+                    "Covers AWS network troubleshooting, DNS resolution, and real-world Cloud Support scenarios."
+                    ]
+            },
+            {
+                issuer: "Amazon Web Services",
+                issuerCode: "C",
+                title: "Skills & Best Practices for Cloud Support Associates",
+                issued: "Issued Sep 2025",
+                expires: null,
+                id: "JCN7G70AW6M4",
+                url: "https://coursera.org/share/07c4666ecd6979298ba4805410570ac8",
+                skills: ["Innovation","Customer Relationship Building","Cloud Services","Cloud Security","Cloud Solutions","Generative AI","Amazon Web Services","Problem Management","Root Cause Analysis","Customer Relationship Management","Customer Support","Technical Support"],
+                highlights: [
+                    "Tailored to Cloud Support: troubleshooting, triage, best practices.",
+                    "Emphasis on core AWS services and incident workflows."
+                ]
+            },
+            {
+                issuer: "Amazon Web Services",
+                issuerCode: "C",
+                title: "AWS Cloud Technical Essentials",
+                issued: "Issued Aug 2025",
+                expires: null,
+                id: "A0623Y8Y8BCL",
+                url: "https://coursera.org/share/f5547817c782ce75e7fd03f54eebae75",
+                skills: ["Databases","Serverless Computing","Cloud Security","Load Balancing","General Networking","Amazon DynamoDB","Amazon Web Services","Virtual Private Networks (VPN)","Scalability","Containerization","Amazon S3","AWS Identity and Access Management (IAM)"],
+                highlights: [
+                    "Covers foundational AWS concepts and key services.",
+                    "Pairs well with your hands-on AWS projects."
+                ]
+            },
+            {
+                issuer: "Amazon Web Services",
+                issuerCode: "C",
+                title: "Introduction to Information Technology and AWS Cloud",
+                issued: "Issued Jul 2025",
+                expires: null,
+                id: "Y7RZXKK8K51V",
+                url: "https://coursera.org/share/5e8607ac4cc9331a19154bb013790a70",
+                skills: ["Web Servers","Public Cloud","Cloud Services","Project Management","Data Analysis","Virtualization","Information Technology","Data Centers","Operating Systems","Hypertext Markup Language (HTML)","General Networking","Amazon Web Services"],
+                highlights: [
+                    "Bridges traditional IT fundamentals with AWS cloud basics."
+                ]
+            },            
+            {
+                issuer: "HackerRank",
+                issuerCode: "HR",
+                title: "Problem Solving (Intermediate)",
+                issued: "Issued May 2025",
+                expires: null,
+                id: "0dc9753e818c",
+                url: "https://www.hackerrank.com/certificates/0dc9753e818c",
+                skills: ["Problem Solving","Python","Algorithms","Data Structures","Mathematics"],
+                highlights: [
+                    "Demonstrates stronger problem-solving under constraints."
+                ]
+            },{
+                issuer: "HackerRank",
+                issuerCode: "HR",
+                title: "Problem Solving (Basic)",
+                issued: "Issued May 2025",
+                expires: null,
+                id: "5515B9A171CC",
+                url: "https://www.hackerrank.com/certificates/5515B9A171CC",
+                skills: ["Problem Solving","Python"],
+                highlights: [
+                    "Validates algorithmic thinking and coding fluency."
+                ]
+            },
+            {
+                issuer: "HackerRank",
+                issuerCode: "HR",
+                title: "Python (Basic)",
+                issued: "Issued May 2025",
+                expires: null,
+                id: "8CAD818AECF3",
+                url: "https://www.hackerrank.com/certificates/8CAD818AECF3",
+                skills: ["Python", "Functions", "Data Types", "Control Flow"],
+                highlights: [
+                    "Covers Python syntax, data types, and simple algorithms."
+                ]
+            },
+            {
+                issuer: "AWS Educate",
+                issuerCode: "AWS",
+                title: "Getting Started with Compute",
+                issued: "Issued Apr 2025",
+                expires: null,
+                id: null,
+                url: "https://www.credly.com/badges/067622a2-f5d4-44b5-9438-4b9a48faf1db",
+                skills: ["EC2", "AWS", "Cloud","lambda","API Gateway","Serverless","Compute"],
+                highlights: [
+                    "Intro to EC2, instances, and compute basics."
+                ]
+            },
+            {
+                issuer: "AWS Educate",
+                issuerCode: "AWS",
+                title: "Getting Started with Storage",
+                issued: "Issued Apr 2025",
+                expires: null,
+                id: null,
+                url: "https://www.credly.com/badges/64f80b2a-80cf-4cfc-b9bc-95130f052d44",
+                skills: ["S3", "EBS", "AWS", "Cloud","Storage","Block Storage","Object Storage","File Storage"],
+                highlights: [
+                    "Covers S3 and EBS fundamentals."
+                ]
+            },
+            {
+                issuer: "AWS Educate",
+                issuerCode: "AWS",
+                title: "Introduction to Cloud 101",
+                issued: "Issued Apr 2025",
+                expires: null,
+                id: null,
+                url: "https://www.credly.com/badges/d79deb7f-ee24-41a3-a27d-765937434488",
+                skills: ["AWS", "Cloud", "Cloud Computing", "Cloud Concepts", "Shared Responsibility Model", "Core Services"],
+                highlights: [
+                    "Cloud concepts, shared responsibility, and core services."
+                ]
+            },
+            {
+                issuer: "AWS Educate",
+                issuerCode: "AWS",
+                title: "Introduction to Generative AI",
+                issued: "Issued Mar 2025",
+                expires: null,
+                id: null,
+                url: "https://www.credly.com/badges/35ad7198-a9e2-4b76-9cfb-af20a3811cbe/public_url",
+                skills: ["Generative AI", "Cloud", "AI", "Machine Learning", "Foundation Models", "Large Language Models", "GenAI"],
+                highlights: [
+                    "Primer on GenAI concepts and responsible usage."
+                ]
+            },
+            {
+                issuer: "Programming Hub",
+                issuerCode: "PH",
+                title: "Kotlin Certification Course",
+                issued: "Issued Oct 2023",
+                expires: null,
+                id: "1696733877667",
+                url: null,
+                skills: ["Kotlin", "OOP", "Syntax"],
+                highlights: [
+                    "Syntax, OOP basics, and tooling."
+                ]
+            },
+            {
+                issuer: "Programming Hub",
+                issuerCode: "PH",
+                title: "Python Certification Course",
+                issued: "Issued Oct 2023",
+                expires: null,
+                id: "1697454809429",
+                url: null,
+                skills: ["Python", "OOP", "Syntax"],
+                highlights: [
+                    "Core Python programming constructs."
+                ]
+            }
+        ];
+
+        /* Elements */
+        const $list = document.getElementById('certList');
+        const $title = document.getElementById('dTitle');
+        const $issuer = document.getElementById('dIssuer');
+        const $dates = document.getElementById('dDates');
+        const $id = document.getElementById('dId');
+        const $skills = document.getElementById('dSkills');
+        const $high = document.getElementById('dHighlights');
+        const $btnOpen = document.getElementById('btnOpen');
+        const $btnCopy = document.getElementById('btnCopy');
+
+        let activeIndex = 0;
+        const itemId = i => `cert-${i}`;
+
+        function renderList() {
+            $list.innerHTML = '';
+            CERTS.forEach((c, i) => {
+                const el = document.createElement('div');
+                el.className = 'cert-item' + (i === activeIndex ? ' is-active' : '');
+                el.setAttribute('role', 'option');
+                el.setAttribute('id', itemId(i));
+                el.setAttribute('tabindex', i === activeIndex ? '0' : '-1');
+                el.dataset.index = i;
+
+                const badge = document.createElement('div');
+                badge.className = `cert-badge ${c.issuerCode}`;
+                badge.textContent = c.issuerCode;
+                el.appendChild(badge);
+
+                const info = document.createElement('div');
+                const t = document.createElement('div');
+                t.className = 'cert-title-sm';
+                t.textContent = c.title;
+                const m = document.createElement('div');
+                m.className = 'cert-meta';
+                m.textContent = `${c.issuer} • ${[c.issued, c.expires].filter(Boolean).join(' · ')}`;
+                info.appendChild(t); info.appendChild(m);
+                el.appendChild(info);
+
+                el.addEventListener('click', () => select(i));
+                el.addEventListener('keydown', (ev) => {
+                    if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); select(i); }
+                    if (ev.key === 'ArrowDown') { ev.preventDefault(); move(1); }
+                    if (ev.key === 'ArrowUp') { ev.preventDefault(); move(-1); }
+                });
+
+                $list.appendChild(el);
+            });
+            $list.setAttribute('aria-activedescendant', itemId(activeIndex));
+        }
+
+        function renderDetails(i) {
+            const c = CERTS[i];
+            $title.textContent = c.title;
+            $issuer.innerHTML = `Issuer: <strong>${c.issuer}</strong>`;
+            $dates.textContent = [c.issued, c.expires].filter(Boolean).join(' · ') || '—';
+            $id.textContent = c.id ? `Credential ID: ${c.id}` : '';
+
+            // skills
+            $skills.innerHTML = '';
+            c.skills.forEach(s => {
+                const chip = document.createElement('span');
+                chip.className = 'cert-chip';
+                chip.textContent = s;
+                $skills.appendChild(chip);
+            });
+
+            // highlights
+            $high.innerHTML = '';
+            const ul = document.createElement('ul');
+            ul.style.margin = '0'; ul.style.paddingLeft = '18px';
+            c.highlights.forEach(h => {
+                const li = document.createElement('li'); li.textContent = h; ul.appendChild(li);
+            });
+            $high.appendChild(ul);
+
+            // actions
+            if (c.url) {
+                $btnOpen.disabled = false;
+                $btnOpen.onclick = () => window.open(c.url, '_blank', 'noopener');
+            } else {
+                $btnOpen.disabled = true;
+                $btnOpen.onclick = null;
+            }
+            if (c.id) {
+                $btnCopy.disabled = false;
+                $btnCopy.onclick = async () => {
+                    try {
+                        await navigator.clipboard.writeText(c.id);
+                        const txt = $btnCopy.textContent;
+                        $btnCopy.textContent = 'Copied!';
+                        setTimeout(() => { $btnCopy.textContent = txt; }, 1200);
+                    } catch {
+                        alert('Copy failed — you can select the ID text and copy it manually.');
+                    }
+                };
+            } else {
+                $btnCopy.disabled = true;
+                $btnCopy.onclick = null;
+            }
+        }
+
+        function select(i) {
+            activeIndex = i;
+            renderList();
+            renderDetails(i);
+            const activeEl = document.getElementById(itemId(i));
+            if (activeEl) activeEl.focus();
+        }
+        function move(delta) {
+            const n = Math.max(0, Math.min(CERTS.length - 1, activeIndex + delta));
+            select(n);
+        }
+
+        /* Init */
+        renderList();
+        renderDetails(activeIndex);
+
+        /* Arrow key support when list has focus */
+        $list.addEventListener('keydown', (ev) => {
+            if (ev.key === 'ArrowDown') { ev.preventDefault(); move(1); }
+            if (ev.key === 'ArrowUp') { ev.preventDefault(); move(-1); }
+        });
+
+        /* Optional deep-link: ?cert=INDEX */
+        const params = new URLSearchParams(location.search);
+        const idx = Number(params.get('cert'));
+        if (Number.isInteger(idx) && idx >= 0 && idx < CERTS.length) { select(idx); }
+    </script>
+
+
 </body>
 
 </html>
